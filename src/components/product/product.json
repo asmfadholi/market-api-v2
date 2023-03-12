@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_grocery_products",
+  "info": {
+    "displayName": "grocery",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "biginteger"
+    },
+    "minCount": {
+      "type": "biginteger"
+    }
+  }
+}

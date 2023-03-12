@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_transaction_transactions",
+  "info": {
+    "displayName": "transaction",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productName": {
+      "type": "text"
+    },
+    "count": {
+      "type": "biginteger"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "normalPrice": {
+      "type": "biginteger"
+    },
+    "basePrice": {
+      "type": "biginteger"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "grocery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.product"
+    }
+  }
+}
