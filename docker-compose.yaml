@@ -1,5 +1,23 @@
 version: '3'
 services:
+  market_client_v2:
+    container_name: market_client_v2
+    build:
+      context: ../market-client-v2
+      dockerfile: Dockerfile
+    platform: "linux/amd64"
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_BASE_URL: http://localhost:1337/api
+      COOKIE_PASSWORD: complex_password_at_least_32_characters_long
+      COOKIE_NAME: myapp_cookiename
+    ports:
+      - "8000:8000"
+    networks:
+      - strapi
+    depends_on:
+      - market_api_v2
   market_api_v2:
     container_name: market-api-v2
     build:
@@ -44,16 +62,13 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql/data/ #using a volume
+      - /Users/fadholi/Documents/PROJECTS_MANDIRI/backup/data:/var/lib/postgresql/data/ #using a volume
       #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
 
     ports:
       - '5432:5432'
     networks:
       - strapi
-
-volumes:
-  strapi-data:
 
 networks:
   strapi:
