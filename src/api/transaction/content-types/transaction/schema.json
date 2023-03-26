@@ -23,16 +23,16 @@
       "relation": "oneToOne",
       "target": "api::shop.shop"
     },
-    "users_permissions_role": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "transactions": {
       "type": "dynamiczone",
       "components": [
         "transaction.transaction"
       ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
